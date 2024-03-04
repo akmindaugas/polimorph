@@ -3,24 +3,46 @@ interface IDrivable {
 }
 
 interface IRefuelable {
-  refuel('amount'): void;
+  refuel(amount: number): void;
 }
 
 class Bicycle implements IDrivable {
-
-drive(): void;
-lock(): void;
+  drive(): void {
+    console.log("drive");
+  }
 }
 
-class Car implements IRefuelable, IDrivable {
+export class Car implements IRefuelable, IDrivable {
   isParked: boolean;
+
   constructor(isParked: boolean) {
     this.isParked = isParked;
-
   }
-drive (): void;
-refuel(): void {
-    
-}
-  park(): void;
+  drive(): void {
+    console.log("drive");
+  }
+  refuel(): void {
+    console.log(100);
+  }
+  lock(): void {
+    console.log("lock");
+  }
+  park(): void {
+    console.log("park");
+  }
+  // =========================
+  CallCar(): void {
+    this.isParked = true;
+  }
+
+  get carParkStatus(): boolean {
+    return this.isParked;
+  }
+  //   =====================
+  leaveParking(): void {
+    this.isParked = false;
+  }
+  get carLeaveParking(): boolean {
+    return this.isParked;
+  }
 }
